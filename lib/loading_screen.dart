@@ -19,16 +19,18 @@ class _LoadingScreenState extends State<LoadingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Add the Image.network widget with the URL of your GIF
-            Image.network(
-              'https://media.tenor.com/FIzWAbQcjpYAAAAM/loading-splash.gif', // Replace with your GIF URL
-              width: 150, // Adjust width as needed
-              height: 150, // Adjust height as needed
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Add the Image.network widget with the URL of your GIF
+              Image.network(
+                'https://media.tenor.com/FIzWAbQcjpYAAAAM/loading-splash.gif', // Replace with your GIF URL
+                width: 150, // Adjust width as needed
+                height: 150, // Adjust height as needed
+              ),
+            ],
+          ),
         ),
       ),
     );

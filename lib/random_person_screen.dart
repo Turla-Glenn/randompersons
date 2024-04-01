@@ -56,23 +56,25 @@ class _RandomPersonScreenState extends State<RandomPersonScreen> {
             ? ConnectivityScreen(
           onRetry: _loadRandomPerson,
         )
-            : Stack(
-          children: [
-            _randomPerson == null
-                ? LoadingScreen()
-                : _buildRandomPersonScreen(),
-            if (_randomPerson != null) // Conditionally render the FAB
-              Positioned(
-                bottom: 16,
-                right: 16,
-                child: FloatingActionButton(
-                  onPressed: () {
-                    _loadRandomPerson();
-                  },
-                  child: Icon(Icons.refresh),
+            : SingleChildScrollView(
+          child: Stack(
+            children: [
+              _randomPerson == null
+                  ? LoadingScreen()
+                  : _buildRandomPersonScreen(),
+              if (_randomPerson != null) // Conditionally render the FAB
+                Positioned(
+                  bottom: 16,
+                  right: 16,
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      _loadRandomPerson();
+                    },
+                    child: Icon(Icons.refresh),
+                  ),
                 ),
-              ),
-          ],
+            ],
+          ),
         ),
       ),
     );
